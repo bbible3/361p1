@@ -90,12 +90,18 @@ sys_uptime(void)
   return xticks;
 }
 
-int settickets(void)
+int sys_settickets(void)
 {
 
 	int numtickets;
-	argint(0,numtickets);
-	if (numtickets<0) return -1 //Fail if tickets are non positive
-	proc->tickets = numtickets;
+	argint(0,&numtickets);
+	if (numtickets<0) return -1; //Fail if tickets are non positive
+
+	//acquire(&ptable.lock);
+	//proc->tickets = numtickets;
+	myproc()->tickets = numtickets;
+	//release(&ptable.lock);
+
 	return numtickets;
 }
+

@@ -1,0 +1,9 @@
+#import "types.h"
+#import "stat.h"
+#import "user.h"
+
+int main(void) {
+
+	printf("Successfully set tickets to %i", settickets(10);
+	exit();
+}
