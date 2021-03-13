@@ -89,3 +89,13 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int settickets(void)
+{
+
+	int numtickets;
+	argint(0,numtickets);
+	if (numtickets<0) return -1 //Fail if tickets are non positive
+	proc->tickets = numtickets;
+	return numtickets;
+}
